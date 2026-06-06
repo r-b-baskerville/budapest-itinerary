@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budapest Itinerary</title>
+  <style>
+    :root{
+      --navy:#172838; --navy-2:#20394f; --copper:#b98262; --copper-2:#d7a889;
+      --cream:#fbf6ee; --paper:#fffdf8; --line:#e3d6c8; --muted:#6d6258; --ink:#1f2b36;
+      --shadow:0 18px 45px rgba(31,43,54,.10); --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;color:var(--ink);background:linear-gradient(180deg,#fffaf3 0%,#f6eee4 100%)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 12%,rgba(185,130,98,.18),transparent 30%),radial-gradient(circle at 88% 8%,rgba(23,40,56,.12),transparent 28%),radial-gradient(circle at 60% 92%,rgba(215,168,137,.14),transparent 30%);z-index:-1}
+    a{color:inherit}.wrap{width:min(1180px,92vw);margin:auto}.nav{position:sticky;top:0;z-index:10;background:rgba(251,246,238,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand-mark{font-size:35px;line-height:1}.brand strong{font-family:Georgia,serif;font-size:26px;letter-spacing:.08em}.brand span{display:block;color:var(--copper);font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-top:1px}.nav-links{display:flex;gap:8px;flex-wrap:wrap}.nav-links a{text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:12px;padding:10px 13px;border-radius:999px;color:#314152}.nav-links a:hover{background:#efe3d7;color:var(--copper)}
+    .hero{padding:42px 0 26px}.hero-card{position:relative;overflow:hidden;min-height:520px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(90deg,rgba(255,253,248,.96) 0%,rgba(255,253,248,.9) 40%,rgba(255,253,248,.4) 100%),linear-gradient(135deg,#fffaf3,#ead9ca);box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;height:100%;padding:54px}.title-kicker{letter-spacing:.38em;text-transform:uppercase;color:var(--copper);font-size:13px}.hero h1{font-family:Georgia, 'Times New Roman', serif;font-size:clamp(58px,8vw,112px);line-height:.86;margin:14px 0;color:var(--navy);font-weight:400}.script{font-family:"Brush Script MT","Segoe Script",cursive;font-size:clamp(48px,6vw,84px);color:var(--copper);display:block;line-height:1;margin-top:8px}.meta{display:grid;gap:13px;margin:34px 0 28px;color:#354455}.meta div{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.07em;font-size:13px}.intro{border:1px solid var(--line);background:rgba(255,255,255,.58);border-radius:var(--radius);padding:18px 20px;max-width:430px;color:#3d4851;line-height:1.65}.hero-art{position:relative;min-height:400px}.parliament{position:absolute;inset:12px 0 auto 0;height:250px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.86)),url('https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=1400&q=80') center/cover;box-shadow:inset 0 -60px 80px rgba(255,253,248,.95);filter:saturate(.8)}
+    .collage{position:absolute;left:7%;right:0;bottom:12px;display:flex;align-items:end;gap:16px}.photo{border:9px solid #fff;border-bottom-width:28px;box-shadow:0 14px 24px rgba(31,43,54,.18);border-radius:8px;background:#ddd;background-size:cover;background-position:center}.photo.small{width:150px;height:120px;transform:rotate(-4deg);background-image:url('https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?auto=format&fit=crop&w=500&q=80')}.photo.tall{width:190px;height:245px;transform:rotate(2deg);background-image:url('https://images.unsplash.com/photo-1612965607446-25e1332775ae?auto=format&fit=crop&w=500&q=80')}.coffee{width:122px;height:122px;border-radius:50%;background:radial-gradient(circle,#53321f 0 28%,#f7efe5 29% 54%,#fff 55%);box-shadow:0 15px 24px rgba(31,43,54,.16);position:relative}.coffee:after{content:"";position:absolute;right:-28px;top:38px;width:38px;height:38px;border:9px solid #fff;border-left:0;border-radius:0 50% 50% 0}.camera{width:120px;height:82px;border-radius:14px;background:linear-gradient(#4e5660,#1d252d);box-shadow:0 15px 24px rgba(31,43,54,.22);position:relative}.camera:before{content:"";position:absolute;left:34px;top:18px;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle,#111 0 35%,#6c7480 37% 52%,#151d24 54%)}.camera:after{content:"ZENIT";position:absolute;top:8px;left:41px;color:#eee;font-size:10px;letter-spacing:.1em}.sprig{position:absolute;right:20px;top:10px;font-size:80px;color:#96865f;opacity:.8}.quick-links{display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:0;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(255,253,248,.84)}.quick-links a,.quick-links div{padding:22px;text-decoration:none;border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:12px;text-transform:uppercase;letter-spacing:.07em;font-size:13px}.quick-links div{justify-content:flex-start;text-transform:none;letter-spacing:0;line-height:1.5}.quick-links a:hover{background:#efe3d7;color:var(--copper)}
+    section{padding:24px 0}.section-title{font-family:Georgia,serif;font-weight:400;font-size:30px;margin:0 0 18px;letter-spacing:.03em}.days{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.day-card{background:rgba(255,253,248,.92);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(31,43,54,.06)}.day-head{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;text-align:center;padding:15px 8px;text-transform:uppercase;letter-spacing:.14em;font-size:14px}.day-body{padding:20px 18px 18px}.slot{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;margin-bottom:16px}.slot small{text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--muted)}.slot input{width:100%;border:0;border-bottom:1px solid #d7c7b7;background:transparent;padding:3px 0 6px;font:inherit;color:var(--ink);outline:none}.slot a{font-size:11px;color:var(--copper);text-decoration:none}.thumb{height:120px;border-radius:10px;margin-top:8px;background:#ddd center/cover}.day-card:nth-child(1) .thumb{background-image:url('https://images.unsplash.com/photo-1605723517503-3cadb5818a0c?auto=format&fit=crop&w=600&q=80')}.day-card:nth-child(2) .thumb{background-image:url('https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=600&q=80')}.day-card:nth-child(3) .thumb{background-image:url('https://images.unsplash.com/photo-1551867633-194f125bddfa?auto=format&fit=crop&w=600&q=80')}.day-card:nth-child(4) .thumb{background-image:url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80')}.day-card:nth-child(5) .thumb{background-image:url('https://images.unsplash.com/photo-1549877452-9c387954fbc2?auto=format&fit=crop&w=600&q=80')}.button{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:8px;background:var(--copper);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.1em;font-size:11px;padding:11px 18px;width:100%;margin-top:14px}.button.dark{background:var(--navy)}
+    .bottom-grid{display:grid;grid-template-columns:1fr 1fr 1.18fr;gap:22px}.panel{background:rgba(255,253,248,.9);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(31,43,54,.06);padding:24px}.list-item{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;margin:15px 0}.mini-img{width:64px;height:54px;border-radius:8px;background:#ddd center/cover}.list-item:nth-of-type(1) .mini-img{background-image:url('https://images.unsplash.com/photo-1541849546-216549ae216d?auto=format&fit=crop&w=300&q=80')}.list-item:nth-of-type(2) .mini-img{background-image:url('https://images.unsplash.com/photo-1551867633-194f125bddfa?auto=format&fit=crop&w=300&q=80')}.list-item:nth-of-type(3) .mini-img{background-image:url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=300&q=80')}.list-item:nth-of-type(4) .mini-img{background-image:url('https://images.unsplash.com/photo-1523528283115-9bf9b1699245?auto=format&fit=crop&w=300&q=80')}.list-item strong{display:block;font-size:14px}.list-item span{display:block;font-size:12px;color:var(--muted);margin-top:3px}.list-item a{font-size:12px;color:var(--copper);text-decoration:none;white-space:nowrap}.notes{min-height:360px;position:relative;overflow:hidden;background:linear-gradient(135deg,#fffdf8,#f1dfcf)}.notes textarea{width:100%;min-height:210px;border:0;background:repeating-linear-gradient(transparent 0 36px,#d7c7b7 37px);resize:vertical;outline:none;font:16px/37px Georgia,serif;padding:0;color:var(--ink)}.notes:after{content:"🏰";position:absolute;right:22px;bottom:18px;font-size:92px;opacity:.22}.footer-art{display:flex;align-items:end;justify-content:center;gap:18px;padding:12px 0 34px}.gate{font-size:92px}.chimney{font-size:74px}.books{font-size:78px}.edit-note{font-size:13px;color:var(--muted);line-height:1.6;text-align:center;margin-bottom:24px}
+    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr;padding:36px}.hero-art{min-height:330px}.days{grid-template-columns:repeat(2,1fr)}.bottom-grid{grid-template-columns:1fr}.quick-links{grid-template-columns:1fr 1fr}.quick-links div{grid-column:1/-1}.nav-inner{height:auto;padding:14px 0;align-items:flex-start}.nav-links{justify-content:flex-end}.parliament{height:220px}.collage{left:3%}}
+    @media(max-width:620px){.brand strong{font-size:20px}.nav-links a{font-size:11px;padding:8px}.hero-card{border-radius:20px}.hero-grid{padding:26px}.hero h1{font-size:54px}.days{grid-template-columns:1fr}.quick-links{grid-template-columns:1fr}.quick-links a,.quick-links div{border-right:0;border-bottom:1px solid var(--line)}.hero-art{min-height:260px}.parliament{height:190px}.collage{display:none}.sprig{display:none}.bottom-grid{gap:16px}.list-item{grid-template-columns:52px 1fr}.list-item a{grid-column:2}.mini-img{width:52px;height:48px}.footer-art{font-size:42px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark">🏰</span><div><strong>Budapest</strong><span>Itinerary</span></div></a>
+      <div class="nav-links"><a href="#itinerary">Itinerary</a><a href="#info">Info</a><a href="#places">Places</a><a href="#bookings">Bookings</a><a href="#notes">Notes</a></div>
+    </div>
+  </nav>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div>
+            <div class="title-kicker">June 25–29 · 2026</div>
+            <h1><br>Budapest<span class="script">Itinerary</span></h1>
+            <div class="meta"><div>📅 5 days</div><div>📍 Budapest, Hungary</div><div>👯 Good company</div></div>
+            <p class="intro">A shared plan for Budapest: daily details, useful links, bookings, saved places and reminders.</p>
+          </div>
+          <div class="hero-art" aria-hidden="true"><div class="sprig">☘︎</div><div class="parliament"></div><div class="collage"><div class="photo small"></div><div class="coffee"></div><div class="camera"></div><div class="photo tall"></div></div></div>
+        </div>
+      </div>
+      <div id="info" class="quick-links">
+        <div>🧭 <span>A city of bridges, baths and beautiful views. Keep the plan simple and easy to open from WhatsApp.</span></div>
+        <a href="#" target="_blank">✈️ Flights</a><a href="https://www.ryanair.com/gb/en" target="_blank">🛏️ Stay</a><a href="https://leonhotelbudapest.hu/en/" target="_blank">💳 Expenses</a><a href="https://secure.splitwise.com/#/groups/98275403" target="_blank">☎️ Emergency</a>
+      </div>
+    </section>
+
+    <section id="itinerary"><h2 class="section-title">Daily itinerary</h2><div class="days">
+      <!-- Change the value text and href links below. Use full links like https://maps.google.com/... -->
+      
+      <article class="day-card"><div class="day-head">Thu 25 Jun</div><div class="day-body">
+        <div class="slot">☕<div><small>Breakfast</small><input value="Airport"><a href="#">Link ↗</a></div></div>
+        <div class="slot">☀️<div><small>Morning</small><input value="Flight / travel"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍴<div><small>Lunch</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">📷<div><small>Afternoon</small><input value="Explore"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍽️<div><small>Dinner</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">🌙<div><small>Evening</small><input value="Explore"><a href="#">Link ↗</a></div></div>
+        <div class="thumb"></div><a class="button" href="#">View details</a></div></article>
+      
+        <article class="day-card"><div class="day-head">Fri 26 Jun</div><div class="day-body">
+        <div class="slot">☕<div><small>Breakfast</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">☀️<div><small>Morning</small><input value="Veli Bej Baths"><a href="http://www.irgalmasrend.hu/site/velibej/home">Link ↗</a></div></div>
+        <div class="slot">🍴<div><small>Lunch</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">📷<div><small>Afternoon</small><input value="Fisherman's Bastion"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🌙<div><small>Evening</small><input value="Classical Concert"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍽️<div><small>Dinner</small><input value="Tapassio Tapas"><a href="https://tapassio.com/en/home/">Link ↗</a></div></div>
+        <div class="thumb"></div><a class="button" href="#">View details</a></div></article>
+      
+        <article class="day-card"><div class="day-head">Sat 27 Jun</div><div class="day-body">
+        <div class="slot">☕<div><small>Breakfast</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">☀️<div><small>Morning</small><input value="Széchenyi Baths"><a href="https://tickets.szechenyibath.hu/product/0a4b31e9-ebee-4e2a-88ef-3aa91da08b2f">Link ↗</a></div></div>
+        <div class="slot">🍴<div><small>Lunch</small><input value="Varosliget Cafe"><a href="https://varosligetcafe.hu/en/">Link ↗</a></div></div>
+        <div class="slot">📷<div><small>Afternoon</small><input value="Margaret Island"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍽️<div><small>Dinner</small><input value="Aranybastya"><a href="https://en.aranybastya.com/">Link ↗</a></div></div>
+        <div class="slot">🌙<div><small>Evening</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="thumb"></div><a class="button" href="#">View details</a></div></article>
+
+      <article class="day-card"><div class="day-head">Sun 28 Jun</div><div class="day-body">
+        <div class="slot">☕<div><small>Breakfast</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">☀️<div><small>Morning</small><input value="Magnolia Day Spa"><a href="https://magnoliadayspa.hu/en/">Link ↗</a></div></div>
+        <div class="slot">🍴<div><small>Lunch</small><input value="Mazi Greek"><a href="http://www.mazigreekkitchen.hu">Link ↗</a></div></div>
+        <div class="slot">📷<div><small>Afternoon</small><input value="Shopping / Explore"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍽️<div><small>Dinner</small><input value="Qui"><a href="https://quibudapest.com">Link ↗</a></div></div>
+        <div class="slot">🌙<div><small>Evening</small><input value="Danube Cruise"><a href="https://www.getyourguide.com/budapest-l29/budapest-lotus-cruise-with-unlimited-aperol-and-prosecco-t1008035/?ranking_uuid=9aa5da3f-7e5f-4695-b0a3-3597f810f15a">Link ↗</a></div></div>
+        <div class="thumb"></div><a class="button" href="#">View details</a></div></article>
+
+      <article class="day-card"><div class="day-head">Mon 29 Jun</div><div class="day-body">
+        <div class="slot">☕<div><small>Breakfast</small><input value="Final coffee"><a href="#">Link ↗</a></div></div>
+        <div class="slot">☀️<div><small>Morning</small><input value="Pack / airport"><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍴<div><small>Lunch</small><input value="Travel day"><a href="#">Link ↗</a></div></div>
+        <div class="slot">📷<div><small>Afternoon</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">🍽️<div><small>Dinner</small><input value=""><a href="#">Link ↗</a></div></div>
+        <div class="slot">🌙<div><small>Evening</small><input value="Home"><a href="#">Link ↗</a></div></div>
+        <div class="thumb"></div><a class="button" href="#">View details</a></div></article>
+    </div></section>
+
+    <section class="bottom-grid">
+      <div id="places" class="panel"><h2 class="section-title">Places to explore</h2>
+        <div class="list-item"><div class="mini-img"></div><div><strong>New York Café</strong><span>Iconic café and stunning interior</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Széchenyi Thermal Baths</strong><span>Relax and unwind</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Free Time</strong><span>Panoramic city views</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Ruin Bars</strong><span>Unique nightlife experience</span></div><a href="#">Link ↗</a></div>
+        <a class="button dark" href="#">View all places</a>
+      </div>
+      <div id="bookings" class="panel"><h2 class="section-title">Bookings</h2>
+        <div class="list-item"><div class="mini-img"></div><div><strong>River Cruise</strong><span>Evening cruise on the Danube</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Bath Tickets</strong><span>Skip-the-line entry</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Airport Transfer</strong><span>Travel details</span></div><a href="#">Link ↗</a></div>
+        <div class="list-item"><div class="mini-img"></div><div><strong>Other Bookings</strong><span>Add details here</span></div><a href="#">Link ↗</a></div>
+        <a class="button dark" href="#">View all bookings</a>
+      </div>
+      <div id="notes" class="panel notes"><h2 class="section-title">Notes & reminders</h2><textarea placeholder="Add packing notes, restaurant ideas, booking refs, timings..."></textarea></div>
+    </section>
+    <div class="footer-art" aria-hidden="true"><span class="gate">🚇</span><span class="chimney">🥨</span><span class="coffee"> </span><span class="books">📚</span></div>
+    <p class="edit-note">To edit: open this HTML file, search for <strong>href="#"</strong> to replace links, and edit the visible placeholder text. For GitHub Pages, upload this file as <strong>index.html</strong>.</p>
+  </main>
+</body>
+</html>
