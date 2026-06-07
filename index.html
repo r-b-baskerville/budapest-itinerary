@@ -10,7 +10,8 @@
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top"><span class="brand-mark">🏰</span><div><strong>Budapest</strong><span>Itinerary</span></div></a>
-      <div class="nav-links"><a href="#itinerary">Itinerary</a><a href="#info">Info</a><a href="#places">Places</a><a href="#bookings">Bookings</a><a href="#notes">Notes</a></div>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div class="nav-links" id="nav-links"><a href="#itinerary">Itinerary</a><a href="#info">Info</a><a href="#places">Places</a><a href="#bookings">Bookings</a><a href="#notes">Notes</a></div>
     </div>
   </nav>
 
@@ -29,8 +30,7 @@
       </div>
       <div id="info" class="quick-links">
         <div>🧭 <span>A city of bridges, baths and beautiful views.</span></div>
-        <a href="https://www.ryanair.com/gb/en" target="_blank">✈️ Flights</a><a href="https://leonhotelbudapest.hu/en/" target="_blank">🛏️ Stay</a><a href="https://secure.splitwise.com/#/groups/98275403" target="_blank">💳 Expenses</a><a href="#notes
-        " target="_blank">☎️ Info</a>
+        <a href="https://www.ryanair.com/gb/en" target="_blank">✈️ Flights</a><a href="https://leonhotelbudapest.hu/en/" target="_blank">🛏️ Stay</a><a href="https://secure.splitwise.com/#/groups/98275403" target="_blank">💳 Expenses</a><a href="#addresses" target="_blank">☎️ Info</a>
       </div>
     </section>
 
@@ -104,6 +104,26 @@
       </div>
     </section>
     <div class="footer-art" aria-hidden="true"><span class="gate">🚇</span><span class="chimney">🥨</span><span class="coffee"> </span><span class="books">📚</span></div>
- </main>
+  </main>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
